@@ -1,8 +1,8 @@
-import { ChevronDown, Star } from "lucide-react";
+import { ChevronDown, Search, Star } from "lucide-react";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar2() {
   const navigate = useNavigate();
   const navLinks = [
     {
@@ -51,18 +51,49 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <nav className="shadow-lg w-full h-16.75 flex items-center justify-between px-4 md:px-16 lg:px-24 transition-all duration-500 relative z-50 ">
-      {/* Logo */}
-      <img
-        onClick={() => navigate("/")}
-        src="./images/foodpanda_logo_2023.svg"
-        alt=""
-        className="cursor-pointer"
-      />
+    <nav className="shadow-lg w-full flex flex-col transition-all duration-500 relative z-50">
+      <div className="flex items-center justify-between h-20 px-4 md:px-16 lg:px-24 ">
+        {/* Logo */}
+        <img
+          onClick={() => navigate("/")}
+          src="./images/foodpanda_logo_2023.svg"
+          alt=""
+          className="cursor-pointer"
+        />
 
-      {/* Desktop Right */}
-      <div className="hidden lg:flex items-center gap-4">
-        <div className="hidden md:flex items-center text-md gap-4">
+        {/* Search Bar */}
+        <div className="hidden p-1 md:flex items-center justify-between border-slate-50 border-2 bg-white shadow rounded-full ">
+          <input
+            placeholder="Search jobs, job location..."
+            className="pl-4 pr-4 py-2 text-lg flex-1"
+          />
+          <button className="bg-[#ff2b85] hover:bg-[#ff2b85]/90 text-white rounded-full px-4 py-3 text-lg font-semibold">
+            <Search className="w-5 h-5" />
+          </button>
+        </div>
+
+        <button className="hidden px-6 py-2.5 lg:flex items-center cursor-pointer rounded-full text-md font-semibold ml-4 text-[#ff2b85] transition-all duration-500 ">
+          Saved jobs
+          <Star />
+        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <svg
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="h-6 w-6 cursor-pointer"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="20" y2="18" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="hidden h-16.75 lg:flex items-center  justify-center border-t-2 border-[#ff2b85] ">
+        <div className="hidden md:flex items-center text-lg gap-10">
           {navLinks.map((link, i) => (
             <div className="relative group">
               {/* Parent NavLink */}
@@ -80,13 +111,13 @@ export default function Navbar() {
 
               {/* Dropdown */}
               {link.dropdown && (
-                <div className="absolute top-full left-0 mt-4 w-44 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                <div className="absolute top-full left-0 mt-4 w-72 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="flex flex-col p-4">
                     {link.dropdown.map((item, j) => (
                       <NavLink
                         key={j}
                         to={item.path}
-                        className="py-2 text-md hover:bg-gray-100 border-b last:border-b-0"
+                        className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
                       >
                         {item.name}
                       </NavLink>
@@ -97,26 +128,6 @@ export default function Navbar() {
             </div>
           ))}
         </div>
-      </div>
-      <button className="hidden px-6 py-2.5 lg:flex items-center cursor-pointer rounded-full text-md font-semibold ml-4 text-[#ff2b85] transition-all duration-500 ">
-        Saved jobs
-        <Star />
-      </button>
-
-      {/* Mobile Menu Button */}
-      <div className="flex items-center lg:hidden">
-        <svg
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="h-6 w-6 cursor-pointer"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-        >
-          <line x1="4" y1="6" x2="20" y2="6" />
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <line x1="4" y1="18" x2="20" y2="18" />
-        </svg>
       </div>
 
       {/* Mobile Menu */}
@@ -146,7 +157,7 @@ export default function Navbar() {
             <NavLink
               to={link.path}
               className="
-                  flex items-center gap-1 font-semibold cursor-pointer "
+                           flex items-center gap-1 font-semibold cursor-pointer "
             >
               {link.name}
 
