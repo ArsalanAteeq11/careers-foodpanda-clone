@@ -51,82 +51,8 @@ export default function SavedJobs() {
             </div>
 
             {/* Right Illustration */}
-            <div className="relative">
-              <div className="relative h-80 flex items-end justify-center gap-4 px-8">
-                {/* Building 1 */}
-                <div
-                  className="relative w-24 bg-pink-100 rounded-t-lg animate-float"
-                  style={{ height: "65%", animationDelay: "0s" }}
-                >
-                  <div className="absolute inset-x-0 top-6 space-y-3 px-3">
-                    {[...Array(6)].map((_, i) => (
-                      <div key={i} className="grid grid-cols-3 gap-1.5">
-                        {[...Array(3)].map((_, j) => (
-                          <div key={j} className="h-2 bg-pink-200 rounded-sm" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Building 2 - Tallest */}
-                <div
-                  className="relative w-28 bg-pink-200 rounded-t-lg animate-float"
-                  style={{ height: "85%", animationDelay: "0.2s" }}
-                >
-                  <div className="absolute inset-x-0 top-6 space-y-3 px-3">
-                    {[...Array(8)].map((_, i) => (
-                      <div key={i} className="grid grid-cols-3 gap-1.5">
-                        {[...Array(3)].map((_, j) => (
-                          <div key={j} className="h-2 bg-pink-300 rounded-sm" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                  {/* Rooftop antenna */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-1 h-4 bg-pink-300 rounded-full" />
-                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-2 h-2 bg-pink-400 rounded-full" />
-                </div>
-
-                {/* Building 3 */}
-                <div
-                  className="relative w-24 bg-pink-100 rounded-t-lg animate-float"
-                  style={{ height: "70%", animationDelay: "0.4s" }}
-                >
-                  <div className="absolute inset-x-0 top-6 space-y-3 px-3">
-                    {[...Array(6)].map((_, i) => (
-                      <div key={i} className="grid grid-cols-3 gap-1.5">
-                        {[...Array(3)].map((_, j) => (
-                          <div key={j} className="h-2 bg-pink-200 rounded-sm" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Building 4 */}
-                <div
-                  className="relative w-20 bg-pink-50 rounded-t-lg animate-float"
-                  style={{ height: "55%", animationDelay: "0.6s" }}
-                >
-                  <div className="absolute inset-x-0 top-6 space-y-3 px-2">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="grid grid-cols-2 gap-1.5">
-                        {[...Array(2)].map((_, j) => (
-                          <div key={j} className="h-2 bg-pink-100 rounded-sm" />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Clouds */}
-                <div className="absolute top-10 left-10 w-16 h-8 bg-white rounded-full opacity-60 animate-float-slow" />
-                <div
-                  className="absolute top-16 right-16 w-20 h-10 bg-white rounded-full opacity-50 animate-float-slow"
-                  style={{ animationDelay: "1s" }}
-                />
-              </div>
+            <div className="">
+              <img src="./images/10.png" alt="" />
             </div>
           </div>
         </div>
