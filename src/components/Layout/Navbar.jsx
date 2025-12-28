@@ -42,7 +42,11 @@ export default function Navbar() {
       name: "pandaStories",
       dropdown: [
         { name: "foodpanda Blog", path: "/posts" },
-        { name: "foodpanda News", path: "/newsroom" },
+        {
+          name: "foodpanda News",
+          path: "https://foodpanda-three.vercel.app/newsroom",
+          external: true,
+        },
         { name: "foodpanda Data Blog", path: "/foodpanda-data" },
       ],
     },
@@ -62,7 +66,7 @@ export default function Navbar() {
 
       {/* Desktop Right */}
       <div className="hidden lg:flex items-center gap-4">
-        <div className="hidden md:flex items-center text-md gap-4">
+        <div className="hidden md:flex items-center text-md gap-8">
           {navLinks.map((link, i) => (
             <div className="relative group">
               {/* Parent NavLink */}
@@ -82,15 +86,27 @@ export default function Navbar() {
               {link.dropdown && (
                 <div className="absolute top-full left-0 mt-4 w-44 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                   <div className="flex flex-col p-4">
-                    {link.dropdown.map((item, j) => (
-                      <NavLink
-                        key={j}
-                        to={item.path}
-                        className="py-2 text-md hover:bg-gray-100 border-b last:border-b-0"
-                      >
-                        {item.name}
-                      </NavLink>
-                    ))}
+                    {link.dropdown.map((item, j) =>
+                      item.external ? (
+                        <a
+                          key={j}
+                          href={item.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={j}
+                          to={item.path}
+                          className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
+                        >
+                          {item.name}
+                        </NavLink>
+                      )
+                    )}
                   </div>
                 </div>
               )}
@@ -98,7 +114,10 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-      <button className="hidden px-6 py-2.5 lg:flex items-center cursor-pointer rounded-full text-md font-semibold ml-4 text-[#ff2b85] transition-all duration-500 ">
+      <button
+        onClick={() => navigate("/candidateshortlist")}
+        className="hidden px-6 py-2.5 lg:flex items-center cursor-pointer rounded-full text-md font-semibold ml-4 text-[#ff2b85] transition-all duration-500 "
+      >
         Saved jobs
         <Star />
       </button>
@@ -159,22 +178,37 @@ export default function Navbar() {
             {link.dropdown && (
               <div className="absolute z-50 top-full left-0 mt-4 w-72 bg-white rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
                 <div className="flex flex-col p-4">
-                  {link.dropdown.map((item, j) => (
-                    <NavLink
-                      key={j}
-                      to={item.path}
-                      className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
+                  {link.dropdown.map((item, j) =>
+                    item.external ? (
+                      <a
+                        key={j}
+                        href={item.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <NavLink
+                        key={j}
+                        to={item.path}
+                        className="py-2 text-lg hover:bg-gray-100 border-b last:border-b-0"
+                      >
+                        {item.name}
+                      </NavLink>
+                    )
+                  )}
                 </div>
               </div>
             )}
           </div>
         ))}
 
-        <button className="bg-[#ff2b85] text-white px-8 py-2.5 rounded-full transition-all duration-500">
+        <button
+          onClick={() => navigate("/candidateshortlist")}
+          className="bg-[#ff2b85] text-white px-8 py-2.5 rounded-full transition-all duration-500"
+        >
           Saved Jobs
         </button>
       </div>

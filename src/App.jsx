@@ -12,6 +12,8 @@ import Benefits from "./pages/Benefits";
 import DiversityInclusion from "./pages/DiversityInclusion";
 import Jobs from "./pages/Jobs";
 import PowerUp from "./pages/PowerUp";
+import Blog from "./pages/Blog";
+import SavedJobs from "./pages/SavedJobs";
 
 function Layout() {
   const location = useLocation();
@@ -33,6 +35,8 @@ function Layout() {
         />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/powerup-sg-tech-traineeship" element={<PowerUp />} />
+        <Route path="/posts" element={<Blog />} />
+        <Route path="/candidateshortlist" element={<SavedJobs />} />
       </Routes>
 
       <ScrollToTop />
